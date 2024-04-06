@@ -23,6 +23,7 @@ const App: React.FC = () => {
           <div className="app">
             <NavBar />
             <Wrapper />
+            {/* All Routes Crash Design at the moment!!! */}
             <Routes>
               <Route element={<Search />} path="/search" />
               <Route element={<MyList />} path="/list" />
