@@ -1,5 +1,6 @@
 export interface GeneralSliceInitialState {
   isLoading: boolean;
+  toasts: string[];
 }
 
 export interface PokemonSliceInitialState {
