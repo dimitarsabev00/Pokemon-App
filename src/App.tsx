@@ -10,8 +10,10 @@ import {
 
 import { ToastContainer, ToastOptions, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { clearToasts } from "./store";
+import { clearToasts, setUserStatus } from "./store";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth } from "./configs/firebase";
 
 const Search = lazy(() => import("./screens/Search"));
 const MyList = lazy(() => import("./screens/MyList"));
@@ -22,7 +24,13 @@ const Pokemon = lazy(() => import("./screens/Pokemon"));
 const App: React.FC = () => {
   const { toasts } = useAppSelector(({ generalSlice }) => generalSlice);
   const dispatch = useAppDispatch();
-
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        dispatch(setUserStatus({ email: currentUser.email as string }));
+      }
+    });
+  }, [dispatch]);
   useEffect(() => {
     if (toasts.length) {
       const toastOptions: ToastOptions = {
