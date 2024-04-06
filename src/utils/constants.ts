@@ -1,3 +1,5 @@
+export const API_URL = "https://pokeapi.co/api/v2";
+
 export const navigationRoutes = [
   {
     name: "Search",
@@ -22,8 +24,8 @@ export const navigationRoutes = [
 ];
 
 export const pokemonTabs = {
-    description: "description",
-    evolution: "evolution",
-    locations: "locations",
-    moves: "moves",
-  };
+  description: "description",
+  evolution: "evolution",
+  locations: "locations",
+  moves: "moves",
+};
