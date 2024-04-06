@@ -11,6 +11,7 @@ import { removeFromCompare } from "../../store";
 
 import "./styles.scss";
 import { pokemonTypes } from "../../utils/pokemonTypes";
+import { addPokemonToList } from "../../store/reducers/addPokemonToList";
 
 type CompareContainerProps = {
   pokemon?: userPokemonsType;
@@ -142,7 +143,7 @@ const CompareContainer: React.FC<CompareContainerProps> = ({
             <button
               className="compare-btn"
               onClick={() => {
-                // dispatch(addPokemonToList(pokemon));
+                dispatch(addPokemonToList(pokemon));
               }}
             >
               Add

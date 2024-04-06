@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router";
 
 import "./styles.scss";
 import { addToCompare, setToast } from "../../store";
+import { addPokemonToList } from "../../store/reducers/addPokemonToList";
 
 type PokemonCardsGridProps = {
   pokemons: userPokemonsType[];
@@ -29,12 +30,12 @@ const PokemonCardsGrid: React.FC<PokemonCardsGridProps> = ({ pokemons }) => {
                   {location.pathname.includes("/pokemon") ? (
                     <FaPlus
                       className="plus"
-                      //   onClick={() => dispatch(addPokemonToList(data))}
+                        onClick={() => dispatch(addPokemonToList(data))}
                     />
                   ) : location.pathname.includes("/search") ? (
                     <FaPlus
                       className="plus"
-                      //   onClick={() => dispatch(addPokemonToList(data))}
+                        onClick={() => dispatch(addPokemonToList(data))}
                     />
                   ) : (
                     <FaTrash
