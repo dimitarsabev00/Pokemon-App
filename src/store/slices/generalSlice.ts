@@ -1,15 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { GeneralSliceInitialState } from "../../utils/types";
 
-const initialState = {};
+const initialState: GeneralSliceInitialState = {
+  isLoading: true,
+};
 
 export const generalSlice = createSlice({
   name: "generalSlice",
   initialState,
   reducers: {
-    setGeneralFields: (state, { payload }) => ({ ...state, ...payload }),
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+    },
   },
 });
 
-export const { setGeneralFields } = generalSlice.actions;
+export const { setLoading } = generalSlice.actions;
 
 export default generalSlice.reducer;
