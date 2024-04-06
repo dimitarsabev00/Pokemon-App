@@ -4,3 +4,4 @@ export { default as Wrapper } from "./Wrapper";
 export { default as Background } from "./Background";
 export { default as Loader } from "./Loader";
 export { default as PokemonCardsGrid } from "./PokemonCardsGrid";
+export { default as Login } from "./Login";
