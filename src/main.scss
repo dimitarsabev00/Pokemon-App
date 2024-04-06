@@ -10,11 +10,3 @@ body {
   font-family: "Raleway", sans-serif;
   background-color: black;
 }
-
-#root {
-  $accent-color: #f51313;
-  --accent-color-dark: color.scale($accent-color, $lightness: -30%);
-}
-
-:root {
-}

@@ -15,7 +15,7 @@
   &-image {
     height: 15rem;
     border-radius: 10rem;
-    border: 0.3rem solid var(--accent-color);
+    border: 0.3rem solid white;
     padding: 1rem;
   }
   &-links {
@@ -24,7 +24,7 @@
     margin-top: 2rem;
     cursor: pointer;
     a {
-      color: var(--accent-color);
+      color: white;
       svg {
         font-size: 3rem;
       }

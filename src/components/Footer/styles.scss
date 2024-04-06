@@ -33,11 +33,11 @@ footer {
           cursor: pointer;
           transition: 0.3s ease-in-out;
           &:hover {
-            background-color: var(--accent-color);
+            background-color: white;
           }
         }
         .active {
-          background-color: var(--accent-color);
+          background-color: white;
         }
       }
     }
