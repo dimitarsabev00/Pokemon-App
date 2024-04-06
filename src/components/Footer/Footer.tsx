@@ -5,7 +5,7 @@ import { pokemonTabs } from "../../utils/constants";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { signOut } from "@firebase/auth";
 import { auth } from "../../configs/firebase";
-import { setToast, setUserStatus } from "../../store";
+import { setPokemonTab, setToast, setUserStatus } from "../../store";
 
 import "./styles.scss";
 
@@ -13,6 +13,9 @@ const Footer: React.FC = () => {
   const { userInfo } = useAppSelector(({ generalSlice }) => generalSlice);
 
   const location = useLocation();
+  const currentPokemonTab = useAppSelector(
+    ({ generalSlice: { currentPokemonTab } }) => currentPokemonTab
+  );
   const dispatch = useAppDispatch();
   const logOutUser = () => {
     signOut(auth);
@@ -44,7 +47,15 @@ const Footer: React.FC = () => {
         {location.pathname.includes("/pokemon") && (
           <ul>
             {routes.map((route) => (
-              <li key={route.name}>{route.value}</li>
+              <li
+                key={route.name}
+                className={`${
+                  currentPokemonTab === route.name ? "active" : ""
+                }`}
+                onClick={() => dispatch(setPokemonTab(route.name))}
+              >
+                {route.value}
+              </li>
             ))}
           </ul>
         )}
