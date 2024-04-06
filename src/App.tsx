@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { Background, Footer, Loader, NavBar, Wrapper } from "./components";
+import { Background, Footer, Loader, NavBar } from "./components";
 import "./App.scss";
 import {
   Navigate,
@@ -22,8 +22,6 @@ const App: React.FC = () => {
         <Suspense fallback={<Loader />}>
           <div className="app">
             <NavBar />
-            <Wrapper />
-            {/* All Routes Crash Design at the moment!!! */}
             <Routes>
               <Route element={<Search />} path="/search" />
               <Route element={<MyList />} path="/list" />
