@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { Background, Footer, NavBar, Wrapper } from "./components";
+import { Background, Footer, Loader, NavBar, Wrapper } from "./components";
 import "./App.scss";
 import {
   Navigate,
@@ -19,7 +19,7 @@ const App: React.FC = () => {
     <div className="main-container">
       <Background />
       <Router>
-        <Suspense fallback={<>Loading...</>}>
+        <Suspense fallback={<Loader />}>
           <div className="app">
             <NavBar />
             <Wrapper />
