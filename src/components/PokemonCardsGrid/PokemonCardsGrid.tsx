@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from "react-router";
 import "./styles.scss";
 import { addToCompare, setToast } from "../../store";
 import { addPokemonToList } from "../../store/reducers/addPokemonToList";
+import { removePokemonFromUserList } from "../../store/reducers/removePokemonFromUserList";
 
 type PokemonCardsGridProps = {
   pokemons: userPokemonsType[];
@@ -40,12 +41,12 @@ const PokemonCardsGrid: React.FC<PokemonCardsGridProps> = ({ pokemons }) => {
                   ) : (
                     <FaTrash
                       className="trash"
-                      // onClick={async () => {
-                      //   await dispatch(
-                      //     removePokemonFromUserList({ id: data.firebaseId! })
-                      //   );
-                      //   dispatch(setToast("Pokemon Removed Successfully."));
-                      // }}
+                      onClick={async () => {
+                        await dispatch(
+                          removePokemonFromUserList({ id: data.firebaseId! })
+                        );
+                        dispatch(setToast("Pokemon Removed Successfully."));
+                      }}
                     />
                   )}
                 </div>
