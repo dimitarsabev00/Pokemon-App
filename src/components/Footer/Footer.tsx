@@ -2,10 +2,23 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { MdOutlinePowerSettingsNew } from "react-icons/md";
 import { pokemonTabs } from "../../utils/constants";
-import "./styles.scss";
-const Footer: React.FC = () => {
-  const location = useLocation();
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { signOut } from "@firebase/auth";
+import { auth } from "../../configs/firebase";
+import { setToast, setUserStatus } from "../../store";
 
+import "./styles.scss";
+
+const Footer: React.FC = () => {
+  const { userInfo } = useAppSelector(({ generalSlice }) => generalSlice);
+
+  const location = useLocation();
+  const dispatch = useAppDispatch();
+  const logOutUser = () => {
+    signOut(auth);
+    dispatch(setUserStatus(undefined));
+    dispatch(setToast("Logged out successfully from Firebase"));
+  };
   const routes = [
     {
       name: pokemonTabs.description,
@@ -37,7 +50,7 @@ const Footer: React.FC = () => {
         )}
       </div>
       <div className="block">
-        <MdOutlinePowerSettingsNew />
+        {userInfo && <MdOutlinePowerSettingsNew onClick={logOutUser} />}
       </div>
     </footer>
   );
