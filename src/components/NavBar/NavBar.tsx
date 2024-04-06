@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import pokeballIcon from "../../assets/icons/pokeball-icon.png";
 import { Link, useLocation } from "react-router-dom";
-import { navigationRoutes } from "../../utils/helpers";
 
 import "./styles.scss";
+import { navigationRoutes } from "../../utils/constants";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
