@@ -6,7 +6,7 @@ import { useAppDispatch } from "../../store/hooks";
 import { useLocation, useNavigate } from "react-router";
 
 import "./styles.scss";
-import { addToCompare } from "../../store";
+import { addToCompare, setToast } from "../../store";
 
 type PokemonCardsGridProps = {
   pokemons: userPokemonsType[];
@@ -52,11 +52,11 @@ const PokemonCardsGrid: React.FC<PokemonCardsGridProps> = ({ pokemons }) => {
                   <IoGitCompare
                     onClick={() => {
                       dispatch(addToCompare(data));
-                      // dispatch(
-                      //   setToast(
-                      //     `${data.name} has been added to compare queue.`
-                      //   )
-                      // );
+                      dispatch(
+                        setToast(
+                          `${data.name} has been added to compare queue.`
+                        )
+                      );
                     }}
                   />
                 </div>
