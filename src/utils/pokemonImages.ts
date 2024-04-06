@@ -1,13 +1,14 @@
-const fetchImages = async (directory: string) => {
-  const images: Record<string, any> = {};
-  const imageFiles = await import(
-    `../assets/images/pokemons/${directory}/*.png`
-  );
-  for (const path in imageFiles) {
-    images[path] = imageFiles[path].default;
-  }
+const shinyImages = import.meta.glob('../assets/images/pokemons/shiny/*.png');
+const defaultImageS = import.meta.glob('../assets/images/pokemons/default/*.png');
+
+const fetchImages = (imagePaths) => {
+  const images = {};
+  Object.entries(imagePaths).forEach(([path, value]) => {
+    const key = path.split('/').pop().replace(/\.\w+$/, '');
+    images[key] = value;
+  });
   return images;
 };
 
-export const images = await fetchImages("shiny");
-export const defaultImages = await fetchImages("default");
+export const images = fetchImages(shinyImages);
+export const defaultImages = fetchImages(defaultImageS);
