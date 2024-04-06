@@ -5,6 +5,7 @@ export interface GeneralSliceInitialState {
 export interface PokemonSliceInitialState {
   allPokemons: undefined | genericPokemonType[];
   randomPokemons: undefined | generatedPokemonType[];
+  compareQueue: generatedPokemonType[];
 }
 export interface genericPokemonType {
   name: string;
@@ -19,8 +20,8 @@ export interface generatedPokemonType {
 }
 
 export interface userPokemonsType extends generatedPokemonType {
-    firebaseId?: string;
-  }
+  firebaseId?: string;
+}
 export interface pokemonTypeInterface {
   [key: string]: {
     image: string;

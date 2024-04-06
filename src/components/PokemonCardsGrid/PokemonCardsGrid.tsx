@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../store/hooks";
 import { useLocation, useNavigate } from "react-router";
 
 import "./styles.scss";
+import { addToCompare } from "../../store";
 
 type PokemonCardsGridProps = {
   pokemons: userPokemonsType[];
@@ -15,7 +16,7 @@ const PokemonCardsGrid: React.FC<PokemonCardsGridProps> = ({ pokemons }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(pokemons)
+  console.log(pokemons);
   return (
     <div className="pokemon-card-grid-container">
       <div className="pokemon-card-grid">
@@ -38,25 +39,25 @@ const PokemonCardsGrid: React.FC<PokemonCardsGridProps> = ({ pokemons }) => {
                   ) : (
                     <FaTrash
                       className="trash"
-                      //   onClick={async () => {
-                      //     await dispatch(
-                      //       removePokemonFromUserList({ id: data.firebaseId! })
-                      //     );
-                      //     dispatch(setToast("Pokemon Removed Successfully."));
-                      //   }}
+                      // onClick={async () => {
+                      //   await dispatch(
+                      //     removePokemonFromUserList({ id: data.firebaseId! })
+                      //   );
+                      //   dispatch(setToast("Pokemon Removed Successfully."));
+                      // }}
                     />
                   )}
                 </div>
                 <div className="pokemon-card-compare">
                   <IoGitCompare
-                  // onClick={() => {
-                  //   dispatch(addToCompare(data));
-                  //   dispatch(
-                  //     setToast(
-                  //       `${data.name} has been added to compare queue.`
-                  //     )
-                  //   );
-                  // }}
+                    onClick={() => {
+                      dispatch(addToCompare(data));
+                      // dispatch(
+                      //   setToast(
+                      //     `${data.name} has been added to compare queue.`
+                      //   )
+                      // );
+                    }}
                   />
                 </div>
                 <h3 className="pokemon-card-title">{data.name}</h3>
