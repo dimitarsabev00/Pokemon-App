@@ -1,12 +1,15 @@
 export interface GeneralSliceInitialState {
   isLoading: boolean;
   toasts: string[];
+  userInfo: undefined | { email: string };
 }
 
 export interface PokemonSliceInitialState {
   allPokemons: undefined | genericPokemonType[];
   randomPokemons: undefined | generatedPokemonType[];
   compareQueue: generatedPokemonType[];
+  userPokemons: userPokemonsType[];
+
 }
 export interface genericPokemonType {
   name: string;

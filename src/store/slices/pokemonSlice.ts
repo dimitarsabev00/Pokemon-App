@@ -5,11 +5,13 @@ import {
 } from "../../utils/types";
 import { getInitialPokemonData } from "../reducers/getInitialPokemonData";
 import { getPokemonsData } from "../reducers/getPokemonsData";
+import { getUserPokemons } from "../reducers/getUserPokemons";
 
 const initialState: PokemonSliceInitialState = {
   allPokemons: undefined,
   randomPokemons: undefined,
   compareQueue: [],
+  userPokemons: [],
 };
 
 export const pokemonSlice = createSlice({
@@ -43,8 +45,11 @@ export const pokemonSlice = createSlice({
     builder.addCase(getPokemonsData.fulfilled, (state, action) => {
       state.randomPokemons = action.payload;
     });
+    builder.addCase(getUserPokemons.fulfilled, (state, action) => {
+      state.userPokemons = action.payload!;
+    });
   },
 });
 
-export const { addToCompare,removeFromCompare } = pokemonSlice.actions;
+export const { addToCompare, removeFromCompare } = pokemonSlice.actions;
 export default pokemonSlice.reducer;
