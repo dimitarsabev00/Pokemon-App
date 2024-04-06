@@ -1,9 +1,8 @@
-//@ts-nocheck
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { generatedPokemonType, genericPokemonType } from "../../utils/types";
-import { defaultImages, images } from "../../utils/pokemonImages";
 import { pokemonTypes } from "../../utils/pokemonTypes";
+import { defaultImages, images } from "../../utils/pokemonImages";
 
 export const getPokemonsData = createAsyncThunk(
   "pokemon/randomPokemon",
@@ -29,10 +28,11 @@ export const getPokemonsData = createAsyncThunk(
           image = defaultImages[data.id];
         }
         if (image) {
+          console.log(image)
           pokemonsData.push({
             name: pokemon.name,
             id: data.id,
-            image,
+            image:image,
             types,
           });
         }
