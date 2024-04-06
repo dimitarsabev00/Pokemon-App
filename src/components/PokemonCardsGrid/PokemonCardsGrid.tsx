@@ -7,11 +7,11 @@ import { useLocation, useNavigate } from "react-router";
 
 import "./styles.scss";
 
-type PokemonCardProps = {
+type PokemonCardsGridProps = {
   pokemons: userPokemonsType[];
 };
 
-const PokemonCard: React.FC<PokemonCardProps> = ({ pokemons }) => {
+const PokemonCardsGrid: React.FC<PokemonCardsGridProps> = ({ pokemons }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -99,4 +99,4 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemons }) => {
   );
 };
 
-export default PokemonCard;
+export default PokemonCardsGrid;
