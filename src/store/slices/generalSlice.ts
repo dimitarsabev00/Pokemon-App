@@ -4,6 +4,7 @@ import { GeneralSliceInitialState } from "../../utils/types";
 const initialState: GeneralSliceInitialState = {
   isLoading: true,
   toasts: [],
+  userInfo: undefined,
 };
 
 export const generalSlice = createSlice({
@@ -21,9 +22,16 @@ export const generalSlice = createSlice({
     clearToasts: (state) => {
       state.toasts = [];
     },
+    setUserStatus: (
+      state,
+      action: PayloadAction<{ email: string } | undefined>
+    ) => {
+      state.userInfo = action.payload;
+    },
   },
 });
 
-export const { setLoading,setToast,clearToasts } = generalSlice.actions;
+export const { setLoading, setToast, clearToasts, setUserStatus } =
+  generalSlice.actions;
 
 export default generalSlice.reducer;
