@@ -32,3 +32,9 @@ export interface pokemonTypeInterface {
     vulnerable: string[];
   };
 }
+
+export type pokemonStatType =
+  | "vulnerable"
+  | "weakness"
+  | "strength"
+  | "resistance";
