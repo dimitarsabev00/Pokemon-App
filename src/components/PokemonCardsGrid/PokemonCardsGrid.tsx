@@ -6,9 +6,10 @@ import { useAppDispatch } from "../../store/hooks";
 import { useLocation, useNavigate } from "react-router";
 
 import "./styles.scss";
-import { addToCompare, setToast } from "../../store";
+import { addToCompare, setCurrentPokemon, setPokemonTab, setToast } from "../../store";
 import { addPokemonToList } from "../../store/reducers/addPokemonToList";
 import { removePokemonFromUserList } from "../../store/reducers/removePokemonFromUserList";
+import { pokemonTabs } from "../../utils/constants";
 
 type PokemonCardsGridProps = {
   pokemons: userPokemonsType[];
@@ -68,11 +69,11 @@ const PokemonCardsGrid: React.FC<PokemonCardsGridProps> = ({ pokemons }) => {
                   alt=""
                   className="pokemon-card-image"
                   loading="lazy"
-                  //   onClick={() => {
-                  //     dispatch(setPokemonTab(pokemonTabs.description));
-                  //     dispatch(setCurrentPokemon(undefined));
-                  //     navigate(`/pokemon/${data.id}`);
-                  //   }}
+                    onClick={() => {
+                      dispatch(setPokemonTab(pokemonTabs.description));
+                      dispatch(setCurrentPokemon(undefined));
+                      navigate(`/pokemon/${data.id}`);
+                    }}
                 />
                 <div className="pokemon-card-types">
                   {data.types.map(

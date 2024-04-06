@@ -5,9 +5,13 @@ import { Link, useLocation } from "react-router-dom";
 
 import "./styles.scss";
 import { navigationRoutes } from "../../utils/constants";
+import { useAppDispatch } from "../../store/hooks";
+import { resetRandomPokemons } from "../../store";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     const index = navigationRoutes.findIndex(({ route }) =>
       location.pathname.includes(route)
@@ -33,7 +37,11 @@ const Navbar: React.FC = () => {
           <div className="underline"></div>
           {navigationRoutes.map(({ name, route }, index) => {
             return (
-              <Link to={route} key={index}>
+              <Link
+                to={route}
+                key={index}
+                onClick={(e) => dispatch(resetRandomPokemons())}
+              >
                 <li>{name}</li>
               </Link>
             );
