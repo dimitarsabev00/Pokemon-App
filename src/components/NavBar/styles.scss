@@ -62,7 +62,7 @@ nav {
 
 .underline {
   z-index: 10;
-  height: calc(var(--underline-height) / 2);
+  height: calc(4px / 2);
   mix-blend-mode: initial;
 }
 
@@ -72,16 +72,16 @@ nav {
   z-index: 0;
   bottom: 0;
   left: 0;
-  height: var(--underline-height);
+  height: 4px;
   width: 20%;
-  background-color: var(--accent-color);
+  background-color: white;
   pointer-events: none;
-  transition: transform var(--transition-duration) ease-in-out;
+  transition: transform 0.5s ease-in-out;
 
   &:nth-child(1) {
-    transition: calc(var(--transition-duration) * 0.8);
+    transition: calc(0.5s * 0.8);
   }
   &:nth-child(2) {
-    transition: calc(var(--transition-duration) * 1.2);
+    transition: calc(0.5s * 1.2);
   }
 }
