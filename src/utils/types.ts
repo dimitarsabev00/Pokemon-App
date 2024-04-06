@@ -17,6 +17,10 @@ export interface generatedPokemonType {
   image: string;
   types: pokemonTypeInterface[];
 }
+
+export interface userPokemonsType extends generatedPokemonType {
+    firebaseId?: string;
+  }
 export interface pokemonTypeInterface {
   [key: string]: {
     image: string;
