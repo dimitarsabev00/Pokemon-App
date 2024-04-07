@@ -48,7 +48,7 @@ export const addPokemonToList = createAsyncThunk(
         dispatch(setToast(`${pokemon.name} already part of your collection.`));
       }
     } catch (err) {
-      console.log({ err });
+      console.error({ err });
     }
   }
 );

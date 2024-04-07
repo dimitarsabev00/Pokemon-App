@@ -47,7 +47,7 @@ export const getUserPokemons = createAsyncThunk(
       }
       return [];
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
 );

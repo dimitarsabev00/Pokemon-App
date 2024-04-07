@@ -19,7 +19,6 @@ const PokemonCardsGrid: React.FC<PokemonCardsGridProps> = ({ pokemons }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(pokemons);
   return (
     <div className="pokemon-card-grid-container">
       <div className="pokemon-card-grid">
