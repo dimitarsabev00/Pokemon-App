@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import pokeballIcon from "../../assets/icons/pokeball-icon.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import "./styles.scss";
 import { navigationRoutes } from "../../utils/constants";
@@ -11,7 +11,7 @@ import { resetRandomPokemons } from "../../store";
 const Navbar: React.FC = () => {
   const location = useLocation();
   const dispatch = useAppDispatch();
-
+  const navigate = useNavigate();
   useEffect(() => {
     const index = navigationRoutes.findIndex(({ route }) =>
       location.pathname.includes(route)
@@ -28,7 +28,13 @@ const Navbar: React.FC = () => {
   return (
     <nav>
       <div className="block">
-        <img src={pokeballIcon} alt="" />
+        <img
+          src={pokeballIcon}
+          alt=""
+          onClick={() => {
+            navigate("/");
+          }}
+        />
       </div>
       <div className="data">
         <ul>
